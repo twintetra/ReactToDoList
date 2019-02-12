@@ -7,7 +7,7 @@ const ToDoList = ({todos}) => {
     const elements =  todos.map((item) => {
         const { id, ...itemProps } = item;
         return (
-            <li key={id}>
+            <li key={id} className="list-group-item">
                 <ToDoListItem { ...itemProps}/>
             </li>
         )
@@ -15,7 +15,7 @@ const ToDoList = ({todos}) => {
 
 
     return (
-        <ul>
+        <ul className="list-group todo-list">
             { elements }
         </ul>
     );
