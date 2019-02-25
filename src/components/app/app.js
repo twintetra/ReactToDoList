@@ -8,11 +8,14 @@ import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter';
 
 import './app.css';
+import ItemAddForm from "../item-add-form";
 
 export default class App extends Component {
 
     constructor() {
         super();
+
+        this.maxId = 100;
 
         this.state = {
             todoData: [
@@ -34,7 +37,26 @@ export default class App extends Component {
                 }
             })
 
-        }
+        };
+
+        this.addItem = (text) => {
+
+            const newItem = {
+                label: text,
+                important: false,
+                id: this.maxId++
+            };
+
+            this.setState(({todoData}) => {
+                const newArray = [ ...todoData, newItem];
+
+                return {
+                    todoData: newArray
+                }
+            });
+
+            console.log('say', text);
+        };
 
     }
 
@@ -51,6 +73,7 @@ export default class App extends Component {
                     todos={this.state.todoData}
                     onDeleted={this.onDeleteItem}
                 />
+                <ItemAddForm addItem={this.addItem}/>
             </div>
         )
     }
