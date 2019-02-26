@@ -65,7 +65,6 @@ export default class App extends Component {
                 }
             });
 
-            console.log('say', text);
         };
 
         this.toggleProperty = (arr, id, propName) => {
