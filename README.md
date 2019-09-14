@@ -1,4 +1,2 @@
-## ToDo List на React.js
+## Приложение ToDo List на React.js
 
-
-По курсам.
